@@ -5,11 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
 import Model.Car;
 
 public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> {
@@ -28,7 +25,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
             super(view);
             nameTextView = view.findViewById(R.id.nameTextView);
             priceTextView = view.findViewById(R.id.priceTextView);
-
         }
     }
 
@@ -42,26 +38,19 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.car_list_item, parent, false);
-
         return new MyViewHolder(itemView);
-
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-
-
         final Car car = cars.get(position);
 
         holder.nameTextView.setText(car.getName());
         holder.priceTextView.setText(car.getPrice() + " $");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
-
                 mainActivity.addAndEditCars(true, car, position);
             }
         });
@@ -70,9 +59,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-
         return cars.size();
     }
-
-
 }

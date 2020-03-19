@@ -17,11 +17,13 @@ public interface CarDAO {
     @Update
     public void updateCar(Car car);
 
-    @Delete void deleteCar(Car car);
+    @Delete
+    public void deleteCar(Car car);
 
     @Query("select * from cars")
     public List<Car> getAllCars();
 
     @Query("select * from cars where car_id ==:carId ")
-    public Car getCar(long carId);
+    public  Car getCar(long carId);
+
 }
